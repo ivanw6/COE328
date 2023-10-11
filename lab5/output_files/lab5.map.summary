@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Nov  2 14:45:09 2022
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : lab5
+Top-level Entity Name : FSMBlock
+Family : Cyclone II
+Total logic elements : 68
+    Total combinational functions : 61
+    Dedicated logic registers : 38
+Total registers : 38
+Total pins : 31
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

@@ -1,0 +1,42 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.all;
+USE IEEE.NUMERIC_STD.all;
+ENTITY ALU IS
+PORT (Clk : in STD_LOGIC; 
+		A , B : in signed(7 DOWNTO 0);
+		OP : in unsigned(7 DOWNTO 0);
+		R : out signed(7 DOWNTO 0));
+END ALU_core;
+
+ARCHITECTURE Behavior OF ALU IS
+signal Reg1, Reg2, Result : signed (7 DOWNTO 0) := (others => '0');
+BEGIN
+	Reg1 <= A;
+	Reg2 <= B;
+	process(Clk, OP)
+	BEGIN
+	if(rising_edge(Clk)) then
+	case Op is
+	WHEN "00000001" =>
+			Result <= Reg1 + Reg2;
+	WHEN "00000010" =>
+			Result <= Reg1 - Reg2;
+	WHEN "00000100" =>
+			Result <= Reg1 NAND Reg2;
+	WHEN "00001000" =>
+			Result <= NOT Reg2;
+	WHEN "00010000" =>
+			Result <= Reg1 OR Reg2;
+	WHEN "00100000" =>
+			Result <= Reg1 AND Reg2;
+	WHEN "01000000" =>
+			Result <= Reg1 NOR Reg2;
+	WHEN "10000000" =>
+			Result <= Reg1 XOR Reg2;
+	WHEN OTHERS =>
+			Result <= "00000000";
+END case;
+END if;
+END process;
+R <= Result;
+End Behavior;

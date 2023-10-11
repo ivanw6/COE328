@@ -1,0 +1,121 @@
+|JohnsBlock
+leds[7] <= sseg:inst1.leds[7]
+leds[6] <= sseg:inst1.leds[6]
+leds[5] <= sseg:inst1.leds[5]
+leds[4] <= sseg:inst1.leds[4]
+leds[3] <= sseg:inst1.leds[3]
+leds[2] <= sseg:inst1.leds[2]
+leds[1] <= sseg:inst1.leds[1]
+Clear => johns:inst.Clrn
+E => johns:inst.E
+Clock => clock_div:inst3.clk_in
+neg[7] <= sseg:inst1.ledss[7]
+neg[6] <= sseg:inst1.ledss[6]
+neg[5] <= sseg:inst1.ledss[5]
+neg[4] <= sseg:inst1.ledss[4]
+neg[3] <= sseg:inst1.ledss[3]
+neg[2] <= sseg:inst1.ledss[2]
+neg[1] <= sseg:inst1.ledss[1]
+Q[2] <= johns:inst.Q[2]
+Q[1] <= johns:inst.Q[1]
+Q[0] <= johns:inst.Q[0]
+
+
+|JohnsBlock|sseg:inst1
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN19
+bcd[0] => Mux4.IN19
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN18
+bcd[1] => Mux4.IN18
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN17
+bcd[2] => Mux4.IN17
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux3.IN16
+bcd[3] => Mux4.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+sign => ledss[7].DATAIN
+leds[7] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+ledss[7] <= sign.DB_MAX_OUTPUT_PORT_TYPE
+ledss[6] <= <VCC>
+ledss[5] <= <VCC>
+ledss[4] <= <VCC>
+ledss[3] <= <VCC>
+ledss[2] <= <VCC>
+ledss[1] <= <VCC>
+
+
+|JohnsBlock|johns:inst
+Clrn => Qreg[2].ACLR
+Clrn => Qreg[1].ACLR
+Clrn => Qreg[0].ACLR
+E => Qreg[0].ENA
+E => Qreg[1].ENA
+E => Qreg[2].ENA
+Clkn => Qreg[2].CLK
+Clkn => Qreg[1].CLK
+Clkn => Qreg[0].CLK
+STUDENT_ID[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+STUDENT_ID[1] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+STUDENT_ID[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+STUDENT_ID[3] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Qreg[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Qreg[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= Qreg[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|JohnsBlock|clock_div:inst3
+clk_in => clk_out~reg0.CLK
+clk_in => divisor[0].CLK
+clk_in => divisor[1].CLK
+clk_in => divisor[2].CLK
+clk_in => divisor[3].CLK
+clk_in => divisor[4].CLK
+clk_in => divisor[5].CLK
+clk_in => divisor[6].CLK
+clk_in => divisor[7].CLK
+clk_in => divisor[8].CLK
+clk_in => divisor[9].CLK
+clk_in => divisor[10].CLK
+clk_in => divisor[11].CLK
+clk_in => divisor[12].CLK
+clk_in => divisor[13].CLK
+clk_in => divisor[14].CLK
+clk_in => divisor[15].CLK
+clk_in => divisor[16].CLK
+clk_in => divisor[17].CLK
+clk_in => divisor[18].CLK
+clk_in => divisor[19].CLK
+clk_in => divisor[20].CLK
+clk_in => divisor[21].CLK
+clk_in => divisor[22].CLK
+clk_in => divisor[23].CLK
+clk_in => divisor[24].CLK
+clk_in => divisor[25].CLK
+clk_in => divisor[26].CLK
+clk_in => divisor[27].CLK
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

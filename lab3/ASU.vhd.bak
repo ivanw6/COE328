@@ -1,0 +1,17 @@
+LIBRARY ieee ;
+USE ieee.std logic 1164.all ;
+USE ieee.std logic signed.all ;
+ENTITY adder16 IS
+PORT ( Cin : IN STD LOGIC ;
+X, Y : IN STD LOGIC VECTOR(15 DOWNTO 0) ;
+S : OUT STD LOGIC VECTOR(15 DOWNTO 0) ;
+Cout, Overflow : OUT STD LOGIC ) ;
+END adder16 ;
+ARCHITECTURE Behavior OF adder16 IS
+SIGNAL Sum : STD LOGIC VECTOR(16 DOWNTO 0) ;
+BEGIN
+Sum < = (’0’ & X) + (’0’ & Y) + Cin ;
+S < = Sum(15 DOWNTO 0) ;
+Cout < = Sum(16) ;
+Overflow < = Sum(16) XOR X(15) XOR Y(15) XOR Sum(15) ;
+END Behavior ;
